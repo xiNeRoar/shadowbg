@@ -1,12 +1,12 @@
 # ------------------------------------------------------------------------------
 # Build shadowbg-frontend
-FROM node:20-bullseye AS buildfe
+FROM arm64v8/node:20-bullseye AS buildfe
 RUN git clone https://github.com/xav1erenc/shadowbg-frontend && \
     cd shadowbg-frontend && npm install && npm run build && mv out /fe
 
 # ------------------------------------------------------------------------------
 # Build go binary
-FROM ubuntu:jammy AS buildgo
+FROM arm64v8/ubuntu:jammy AS buildgo
 ADD . /src
 WORKDIR /src
 RUN apt-get update && \
@@ -16,7 +16,7 @@ RUN apt-get update && \
 
 # ------------------------------------------------------------------------------
 # Pull base image
-FROM ubuntu:jammy
+FROM arm64v8/ubuntu:jammy
 
 # ------------------------------------------------------------------------------
 # Copy files to final stage
