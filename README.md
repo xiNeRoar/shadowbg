@@ -1,6 +1,7 @@
 # Shadow.BG 
 
 An API built around the RARBG backup, with optional Next.js frontend
+ARM based
 
 ###### Prerequisites
 - Go ([v1.20](https://go.dev/dl/))
